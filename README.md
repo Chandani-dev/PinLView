@@ -1,4 +1,5 @@
-# PinLockView make your app more secure (v 1.0) 
+# PinLockView 
+make your app more secure (v 1.0) 
 
 # Overview
 PinLockView is library control that enables security into your app by asking a user. If you’ve app that has some sensitive/secure information that you don’t want to leverage you can use this view control.
