@@ -114,6 +114,7 @@ implementation 'com.hb.pinlockview:pinlockview:1.0'
 ```
 ## Step 2
 
+Find View Refrences and attach indicatordots to pinlock view **MUST**
 
 ```java
 mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
@@ -170,7 +171,77 @@ To show view animation
         indicatorDots.showErrorAnimation() //Will show error animation for dot indicator ( vibrate animation with vibrate)
 ```
 
-# Controls Customization
+## Step 3  (Optional) Put this code to application class
+ 
+ add dependency
+ ```groovy
+ implementation "androidx.lifecycle:lifecycle-process:2.2.0"
+ ```
+ 
+```java
+
+  var appComesForeground = false
+  // Used to lock app globally (if you want to lock app while coming from background) use this method 
+  // place it after application main screen load
+  
+  public fun initLocker() {
+        ProcessLifecycleOwner.get().lifecycle.addObserver(lockerAppLifecycleObserver)
+        registerActivityLifecycleCallbacks(lockerActivityLifecycleCallbacks)
+    }
+
+    //This will disable locker will not show pin screen if user comes from background
+    public fun disableLocker() {
+        ProcessLifecycleOwner.get().lifecycle.removeObserver(lockerAppLifecycleObserver)
+        unregisterActivityLifecycleCallbacks(lockerActivityLifecycleCallbacks)
+    }
+
+    private val lockerAppLifecycleObserver = object : LifecycleObserver {
+        @OnLifecycleEvent(Lifecycle.Event.ON_START)
+        fun onStartApp() {
+            appComesForeground = true
+        }
+
+        @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+        fun onStopApp() {
+            appComesForeground = false
+        }
+    }
+
+    private val lockerActivityLifecycleCallbacks = object : ActivityLifecycleCallbacks {
+        override fun onActivityPaused(activity: Activity?) {
+
+        }
+
+        override fun onActivityResumed(activity: Activity?) {
+            if (appComesForeground) {
+                appComesForeground = false
+                activity?.startActivity(PinLockActivity.createIntent(activity))
+            }
+        }
+
+        override fun onActivityStarted(activity: Activity?) {
+
+        }
+
+        override fun onActivityDestroyed(activity: Activity?) {
+
+        }
+
+        override fun onActivitySaveInstanceState(activity: Activity?, outState: Bundle?) {
+
+        }
+
+        override fun onActivityStopped(activity: Activity?) {
+
+        }
+
+        override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
+
+        }
+    }
+```
+
+
 # Theming
 
 There are several theming options available through XML attributes which you can use to completely change the look-and-feel of this view to match the theme of your app.
