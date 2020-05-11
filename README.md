@@ -179,13 +179,12 @@ To show view animation
  ```
  
 ```java
-  class MainApplication : Application()
-  {
-  var appComesForeground = false
-  // Used to lock app globally (if you want to lock app while coming from background) use this method 
-  // place it after application main screen load
-  
-  public fun initLocker() {
+  class MainApplication : Application() {
+    var appComesForeground = false
+    // Used to lock app globally (if you want to lock app while coming from background) use this method 
+    // place it after application main screen load
+
+    public fun initLocker() {
         ProcessLifecycleOwner.get().lifecycle.addObserver(lockerAppLifecycleObserver)
         registerActivityLifecycleCallbacks(lockerActivityLifecycleCallbacks)
     }
@@ -239,7 +238,8 @@ To show view animation
         override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
 
         }
-    }}
+    }
+}
 ```
 
 
