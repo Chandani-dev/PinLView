@@ -272,6 +272,14 @@ There are several theming options available through XML attributes which you can
   app:indicatorType="fillWithAnimation"                   // Choose between "fixed", "fill" and "fillWithAnimation"
 ```
 
+h2 id="social">Social Media :fire:</h2>
+
+If you like this library, please tell others about it :two_hearts: :two_hearts:
+
+[![Share on Twitter](https://github.com/mkrupal09/PinLView/blob/master/twitter_icon.png)]
+[![Share on Facebook](https://github.com/mkrupal09/PinLView/blob/master/design/facebook_icon.png)]
+
+You can follow me on Twitter [**@PhilippJahoda**](https://twitter.com/PhilippJahoda) or sign up for my [**coding newsletter**](https://weeklycoding.com).
 
 
 # License
