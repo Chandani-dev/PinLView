@@ -31,7 +31,7 @@ implementation 'com.hb.pinlockview:pinlockview:1.0'
 
 # How it works?
 
-Create Activity with belowed xml layout
+## Step 1
 
 ``` xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -112,15 +112,16 @@ Create Activity with belowed xml layout
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 ```
-then find a reference to the view and attach it to the parent PinLockView,
+## Step 2
+
 
 ```java
 mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
 mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
-mPinLockView.attachIndicatorDots(mIndicatorDots);
+biometricView = (BiometricView) findViewById(R.id.biometric_view);
+mPinLockView.attachIndicatorDots(mIndicatorDots); 
 
 ```
-You **MUST** attach it to the PinLockView, otherwise it will be simply ignored.
 
 Implement the listener interface as follows,
 
@@ -142,6 +143,31 @@ private PinLockListener mPinLockListener = new PinLockListener() {
     }
 };
 mPinLockView.setPinLockListener(mPinLockListener);
+```
+To enable biometric auth enable using
+```java
+biometricView.requestEnableBiometric() //This will enable biometric view if device has biometric hardware and biometric security added to device
+ biometricView.setOnClickListener {
+            biometricView.promptBiometric(this,
+                    object : BiometricView.OnBiometricCallback {
+                        override fun onBiometricFailed() {
+
+                        }
+
+                        override fun onBiometricSuccess() {
+                            onAuthenticationSuccess() 
+                        }
+                    })
+        }
+```
+
+To show view animation
+```java
+        binding.indicatorDots.startProgress() // To start animation dot indicator view
+        binding.pinLockView.stopInputs() //Will stop taking inputs
+        indicatorDots.stopProgress() //Will stop animation for dot indicator view
+        pinLockView.startInputs() //Will Start taking inputs
+        indicatorDots.showErrorAnimation() //Will show error animation for dot indicator ( vibrate animation with vibrate)
 ```
 
 # Controls Customization
