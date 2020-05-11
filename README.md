@@ -279,11 +279,8 @@ If you like this library, please tell others about it :two_hearts: :two_hearts:
 (https://github.com/mkrupal09/PinLView/blob/master/twitter_icon.png)
 (https://github.com/mkrupal09/PinLView/blob/master/facebook_icon.png)
 
-[![Share on Twitter](https://github.com/mkrupal09/PinLView/blob/master/twitter_icon.png)](https://twitter.com/intent/tweet?text=Check%20out%20the%20awesome%20MPAndroidChart%20library%20on%20Github:%20https://github.com/PhilJay/MPAndroidChart)
-[![Share on Facebook](https://github.com/mkrupal09/PinLView/blob/master/facebook_icon.png)](https://www.facebook.com/sharer/sharer.php?u=https://github.com/PhilJay/MPAndroidChart)
-
-You can follow me on Twitter [**@PhilippJahoda**](https://twitter.com/PhilippJahoda) or sign up for my [**coding newsletter**](https://weeklycoding.com).
-
+[![Share on Twitter](https://github.com/mkrupal09/PinLView/blob/master/twitter_icon.png)]
+[![Share on Facebook](https://github.com/mkrupal09/PinLView/blob/master/facebook_icon.png)]
 
 # License
 
