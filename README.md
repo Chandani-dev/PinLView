@@ -145,7 +145,7 @@ private PinLockListener mPinLockListener = new PinLockListener() {
 };
 mPinLockView.setPinLockListener(mPinLockListener);
 ```
-To enable biometric auth enable using
+To enable biometric auth use
 ```java
 biometricView.requestEnableBiometric() //This will enable biometric view if device has biometric hardware and biometric security added to device
  biometricView.setOnClickListener {
@@ -179,7 +179,8 @@ To show view animation
  ```
  
 ```java
-
+  class MainApplication : Application()
+  {
   var appComesForeground = false
   // Used to lock app globally (if you want to lock app while coming from background) use this method 
   // place it after application main screen load
@@ -238,7 +239,7 @@ To show view animation
         override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
 
         }
-    }
+    }}
 ```
 
 
