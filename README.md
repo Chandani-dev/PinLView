@@ -120,6 +120,8 @@ mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
 mPinLockView.attachIndicatorDots(mIndicatorDots);
 
 ```
+You **MUST** attach it to the PinLockView, otherwise it will be simply ignored.
+
 Implement the listener interface as follows,
 
 ```java
@@ -142,28 +144,7 @@ private PinLockListener mPinLockListener = new PinLockListener() {
 mPinLockView.setPinLockListener(mPinLockListener);
 ```
 
-You **MUST** attach it to the PinLockView, otherwise it will be simply ignored.
-
 # Controls Customization
-```xml
- <com.andrognito.pinlockview.IndicatorDots
-        android:id="@+id/indicator_dots"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
- <com.hb.pinlockview.PinLockView
-            android:id="@+id/pin_lock_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/indicator_dots"
-            app:keypadButtonSize="80dp"
-            app:keypadShowDeleteButton="true"
-            app:keypadTextColor="@color/white"
-            app:keypadTextSize="22sp"/>
-```
-
-
-
 # Theming
 
 There are several theming options available through XML attributes which you can use to completely change the look-and-feel of this view to match the theme of your app.
@@ -186,7 +167,7 @@ There are several theming options available through XML attributes which you can
 
 # IndicatorDots
 ```xml
-app:dotEmptyBackground="@drawable/empty"                // Customize the empty state of the dots
+  app:dotEmptyBackground="@drawable/empty"                // Customize the empty state of the dots
   app:dotFilledBackground"@drawable/filled"               // Customize the filled state of the dots
   app:dotDiameter="12dp"                                  // Change the diameter of the dots
   app:dotSpacing="16dp"                                   // Change the spacing between individual dots
