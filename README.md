@@ -112,9 +112,39 @@ Create Activity with belowed xml layout
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 ```
+then find a reference to the view and attach it to the parent PinLockView,
+
+```java
+mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
+mPinLockView = (PinLockView) findViewById(R.id.pin_lock_view);
+mPinLockView.attachIndicatorDots(mIndicatorDots);
+
+```
+Implement the listener interface as follows,
+
+```java
+private PinLockListener mPinLockListener = new PinLockListener() {
+    @Override
+    public void onComplete(String pin) {
+        Log.d(TAG, "Pin complete: " + pin);
+     }
+
+    @Override
+    public void onEmpty() {
+        Log.d(TAG, "Pin empty");
+    }
+
+    @Override
+    public void onPinChange(int pinLength, String intermediatePin) {
+         Log.d(TAG, "Pin changed, new length " + pinLength + " with intermediate pin " + intermediatePin);
+    }
+};
+mPinLockView.setPinLockListener(mPinLockListener);
+```
+
+You **MUST** attach it to the PinLockView, otherwise it will be simply ignored.
 
 # Controls Customization
-with the PinLockView to indicate pin changes visually to the user.
 ```xml
  <com.andrognito.pinlockview.IndicatorDots
         android:id="@+id/indicator_dots"
@@ -133,16 +163,8 @@ with the PinLockView to indicate pin changes visually to the user.
 ```
 
 
-then find a reference to the view and attach it to the parent PinLockView,
 
-```java
-mIndicatorDots = (IndicatorDots) findViewById(R.id.indicator_dots);
-mPinLockView.attachIndicatorDots(mIndicatorDots);
-```
-
-You **MUST** attach it to the PinLockView, otherwise it will be simply ignored.
-
-## Theming
+# Theming
 
 There are several theming options available through XML attributes which you can use to completely change the look-and-feel of this view to match the theme of your app.
 
