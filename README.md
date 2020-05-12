@@ -63,10 +63,16 @@ Use Pinview to create layout
 ```
 ## Step 2
 
-Find View Refrences and attach indicatordots to pinlock view **MUST**
+Create Activity and Find View Refrences 
 
 ```java
 mPinView = (IndicatorDots) findViewById(R.id.pinView);
+```
+
+Intialize pinview for it's required resources
+
+```java
+mPinView.initialize(this)
 ```
 
 Implement the listener interface as follows,
@@ -90,6 +96,16 @@ private PinLockListener mPinLockListener = new PinLockListener() {
 };
 mPinView.setPinLockListener(mPinLockListener);
 ```
+To change length of pin
+```java
+ mPinView.setPinLength(6)
+```
+
+To enable scramble/shuffle layout
+```java
+mPinView.enableLayoutShuffling()
+```
+
 To enable biometric auth use
 ```java
   mPinview.requestEnableBiometric(object : OnBiometricCallback {
@@ -102,12 +118,11 @@ To enable biometric auth use
 
 To show view animation
 ```java
-        binding.indicatorDots.startProgress() // To start animation dot indicator view
-        binding.pinLockView.stopInputs() //Will stop taking inputs
-        indicatorDots.stopProgress() //Will stop animation for dot indicator view
-        pinLockView.startInputs() //Will Start taking inputs
-        indicatorDots.showErrorAnimation() //Will show error animation for dot indicator ( vibrate animation with vibrate)
+        mPinView.startProgress() // To start animation dot indicator view
+        mPinView.stopProgress() //Will stop animation for dot indicator view
 ```
+
+
 
 ## Step 3  (Optional) Put this code to application class
  
