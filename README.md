@@ -1,7 +1,7 @@
-# PinLockView - Make your app more secure
+# PinView - Make your app more secure
 
 # Overview
-PinLockView is library control that enables security into your app by asking a user. If you’ve app that has some sensitive/secure information that you don’t want to leverage you can use this view control.
+PinView is library control that enables security into your app by asking a user. If you’ve app that has some sensitive/secure information that you don’t want to leverage you can use this view control.
 
 
 <img alt="RecyclerView Adapter Library" src="https://github.com/mkrupal09/PinLView/blob/master/main.png" width = "212" height = "375"/>
@@ -18,15 +18,15 @@ Download
 Grab via Maven:
 ```xml
 <dependency>
-  <groupId>com.hb.pinlockview</groupId>
-  <artifactId>pinlockview</artifactId>
+  <groupId>com.hb.pinview</groupId>
+  <artifactId>pinview</artifactId>
   <version>1.0</version>
   <type>pom</type>
 </dependency>
 ```
 or Gradle:
 ```groovy
-implementation 'com.hb.pinlockview:pinlockview:1.0'
+implementation 'com.hb.pinview:pinview:1.0'
 ```
 
 # How it works?
@@ -75,7 +75,7 @@ Intialize pinview for it's required resources
 mPinView.initialize(this)
 ```
 
-Implement the listener interface as follows,
+Implement the listener interface as follows
 
 ```java
 private PinLockListener mPinLockListener = new PinLockListener() {
@@ -106,20 +106,19 @@ To enable scramble/shuffle layout
 mPinView.enableLayoutShuffling()
 ```
 
-To enable biometric auth use
+To enable biometric auth use (This will enable biometric view if device has biometric hardware and biometric security added to device)
 ```java
   mPinview.requestEnableBiometric(object : OnBiometricCallback {
                 override fun onBiometricSuccess() {}
                 override fun onBiometricFailed() {}
             }) 
-            //This will enable biometric view if device has biometric hardware and biometric security added to device
 
 ```
 
 To show view animation
 ```java
-        mPinView.startProgress() // To start animation dot indicator view
-        mPinView.stopProgress() //Will stop animation for dot indicator view
+mPinView.startProgress() // To start animation dot indicator view
+mPinView.stopProgress() //Will stop animation for dot indicator view
 ```
 
 
