@@ -233,7 +233,7 @@ If you like this library, please tell others about it :two_hearts: :two_hearts:
 # License
 
 ```
-Copyright 2017 aritraroy
+Copyright 2017 HiddenBrains
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
