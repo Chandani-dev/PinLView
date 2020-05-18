@@ -4,7 +4,7 @@
 PinView is library control that enables security into your app by asking a user. If you’ve app that has some sensitive/secure information that you don’t want to leverage you can use this view control.
 
 
-<img alt="RecyclerView Adapter Library" src="https://github.com/mkrupal09/PinLView/blob/master/main.png" width = "212" height = "375"/>
+<img alt="RecyclerView Adapter Library" src="https://github.com/mkrupal09/PinLView/blob/master/pinview.gif" width = "400" height = "711"/>
 
 # Use Case
 1. If you’ve any secure screen and you don’t want to redirect without asking user credentials (pin) this is used i.e payment screen
